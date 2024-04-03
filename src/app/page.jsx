@@ -1,8 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
+
+'use client'
+import Link from "next/link"
+
 
 export default function Home() {
   return (
+
     <div className="flex flex-col h-screen">
       <div className="flex-grow flex flex-col justify-center px-6 py-10">
         <h1 className="text-6xl font-bold text-green-600 text-center pb-18">Welcome to <br/>Pantry Pal</h1>
@@ -24,7 +27,7 @@ export default function Home() {
             </a>
           </Link>
           <p className="mt-4 text-center text-xs text-gray-500">
-            You won't be able to save your pantry items for return visits without an account.
+            You won&apost be able to save your pantry items for return visits without an account.
           </p>
         </div>
       </div>
