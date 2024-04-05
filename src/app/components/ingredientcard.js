@@ -19,21 +19,24 @@ export default function IngredientCard({ ingredientList, updateIngredientsList, 
       ]
     : ingredientList;
 
-  return (
-    <div className="ingredient-card p-4 rounded-lg flex flex-row flex-wrap gap-4">
-      {combinedIngredientsList.map(ingredient => (
-        <div key={ingredient.id} className="ingredient-name flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-100">
-          <label className="flex items-center cursor-pointer">
-            <input 
-              type="checkbox" 
-              checked={checkCondition(ingredient)} // Correct usage of checkCondition
-              onChange={() => handleIngredientClick(ingredient)} // Call handleIngredientClick
-              className="form-checkbox"
-            />
-            <span className='ml-2'>{ingredient.name}</span>
-          </label>
-        </div>
-      ))}
-    </div>
-  );
-}
+    return (
+      <div className="ingredient-card p-4 rounded-lg flex flex-row flex-wrap gap-4">
+        {combinedIngredientsList.map(ingredient => (
+          <div 
+            key={ingredient.id} 
+            className={`ingredient-name flex items-center p-2 border rounded-lg cursor-pointer ${checkCondition(ingredient) ? 'bg-orange-200' : 'hover:bg-gray-100'}`}
+          >
+            <label className="flex items-center cursor-pointer">
+              <input 
+                type="checkbox" 
+                checked={checkCondition(ingredient)}
+                onChange={() => handleIngredientClick(ingredient)}
+                className="form-checkbox"
+              />
+              <span className='ml-2'>{ingredient.name}</span>
+            </label>
+          </div>
+        ))}
+      </div>
+    );
+        }

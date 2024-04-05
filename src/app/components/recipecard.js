@@ -45,27 +45,21 @@ export default function RecipeCard({name , image , link , time , missingIngredie
         }
     }
     return (
-        <div onClick={toSlug} className='cursor-pointer overflow-hidden shadow-md mx-auto my-4 w-full sm:max-w-sm'>
-            <div className='relative w-full' style={{ paddingTop: '0' }}> {/* Maintain aspect ratio for images */}
-                <Image 
-                  priority 
-                  layout='responsive' 
-                  objectFit='cover' 
-                  alt={name} 
-                  src={image} 
-                  width={700}  // Provide width and height to maintain aspect ratio
-                  height={394}
-                />
-            </div>
-            <div className='flex flex-col p-4 space-y-2'>
-                <h2 className='text-lg font-bold text-left'>{name}</h2>
-                <div className='text-sm text-gray-700'>{handleMissingIngredients()}</div>
-                <div className='flex justify-start items-center'>
-                    <div className='rounded-full border border-gray-300 flex items-center justify-center p-2'>
-                        <span className='text-sm'>{handleTime()}</span>
-                    </div>
-                </div>
-            </div>
+        <div onClick={toSlug} className='flex flex-col'>
+          <div className='h-48 w-full relative'> {/* Set a fixed height for the image */}
+            <Image
+              layout='fill'
+              objectFit='cover'
+              src={image}
+              alt={name}
+              className='rounded-t-lg' // Round the top corners to match the card
+            />
+          </div>
+          <div className='p-4'>
+            <h2 className='text-lg font-semibold mb-1'>{name}</h2> {/* Title of the recipe */}
+            <p className='text-sm text-gray-700'>{handleMissingIngredients()}</p> {/* Missing ingredients */}
+            <div className='mt-2 text-sm'>{handleTime()}</div> {/* Cooking time */}
+          </div>
         </div>
-    );
+      );
 }
